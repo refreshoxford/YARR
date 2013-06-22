@@ -12,9 +12,8 @@ use Jenssegers\Mongodb\Model as Eloquent;
  */
 class Sub extends Eloquent {
   // Properties
-  // $_id: primaryKey
-  // $subscribers: foreign key
-  // $feed: foreign key
+  // $subscriber_id: foreign key
+  // $rss_feed_id: foreign key
   // $title
 
   /**

@@ -46,7 +46,15 @@ Route::group(array('prefix' =>  'user'), function() {
   });
 
   Route::post('register', function() {
-    return 'Look I posted the registration form';
+    if (false) {
+      return Redirect::to('user/register')->with('registration_errors', true);
+    }
+    $user = new User;
+    $user->username = Input::get('username');
+    $user->email = Input::get('email');
+    $user->password = Hash::make(Input::get('password'));
+    $user->save();
+    return Redirect::to('user/login');
   });
 
 });

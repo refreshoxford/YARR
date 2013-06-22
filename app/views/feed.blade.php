@@ -9,7 +9,7 @@
 
 		<div class="main_container">
 
-			<h1 class="feed_header">{{$feed->url}}</h1>
+			<h1 class="feed_header">{{$sub->title}}</h1>
 
 			@foreach ($feed->items as $item)
 

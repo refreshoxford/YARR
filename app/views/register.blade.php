@@ -38,7 +38,7 @@
           <span>{{ Form::password('confirm') }}</span><br><br>
 
           <!-- submit button -->
-          <span>{{ Form::submit('Register') }}</span><br>
+          <span>{{ Form::submit('Register') }}</span> <a href="/user/login" >or Log in</a><br>
 
         {{ Form::close() }}
 

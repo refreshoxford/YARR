@@ -8,7 +8,7 @@
 	<body>
 
 		<div class="main_container">
-
+			<a style="float: right" href="/subs">Back to subscriptions</a>
 			<h1 class="feed_header">{{$sub->title}}</h1>
 
 			@foreach ($feed->items as $item)

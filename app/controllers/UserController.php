@@ -25,7 +25,7 @@ class UserController extends BaseController {
     );
 
     if (Auth::attempt($userdata)) {
-      return Redirect::to('user');
+      return Redirect::to('subs');
     } else {
       return Redirect::to('user/login')->with('login_errors', true);
     }

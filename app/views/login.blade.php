@@ -30,7 +30,7 @@
           <p>{{ Form::password('password') }}</p>
 
           <!-- submit button -->
-          <p>{{ Form::submit('Login') }}</p>
+          <p>{{ Form::submit('Log in') }} <a href="/user/register" >or Register</a></p>
 
         {{ Form::close() }}
 

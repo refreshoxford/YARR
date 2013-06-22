@@ -15,6 +15,36 @@ Route::get('/', function() {
   return View::make('hello');
 });
 
+/*
+ * User Routes
+ */
+Route::group(array('prefix' =>  'user'), function() {
+
+  Route::get('/', function() {
+    return 'Hello World';
+  });
+
+  Route::get('login', function() {
+    return View::make('login');
+  });
+
+  Route::post('login', function() {
+    $userdata = array(
+      'username' => Input::get('username'),
+      'password' => Input::get('password'),
+    );
+
+    if (Auth::attempt($userdata)) {
+      return Redirect::to('user');
+    } else {
+      return Redirect::to('user/login')->with('login_errors', true);
+    }
+  });
+
+});
+
+
+
 /**
  * Test routes
  */

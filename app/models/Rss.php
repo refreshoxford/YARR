@@ -24,7 +24,7 @@ class RssFeed extends Eloquent {
   }
 
   public function getItems() {
-    return RssItem::where('rss_feed_id', '=', $this->_id)->get();
+    return RssItem::where('rss_feed_id', '=', $this->id)->get();
   }
 
   /** 
@@ -41,8 +41,7 @@ class RssFeed extends Eloquent {
       $parsedItem->title = (string) $item->title;
       $parsedItem->link = (string) $item->link;
       $parsedItem->description = (string) $item->description;
-      $parsedItem->pubDate = (string) $item->pubDate;
-      $parsedItem->author = (string) $item->author;
+      $parsedItem->pub_date = (string) $item->pubDate;
       $parsedItem->guid = (string) $item->guid;
 
       $this->items()->save($parsedItem);

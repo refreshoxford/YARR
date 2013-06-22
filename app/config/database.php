@@ -83,6 +83,12 @@ return array(
 			'prefix'   => '',
 		),
 
+    'mongodb' => array(
+      'host' => 'localhost',
+      'port' => 27017,
+      'database' => 'yarrdb',
+    ),
+
 	),
 
 	/*

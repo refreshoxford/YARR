@@ -1,28 +1,52 @@
+<!doctype html>
+<html>
 
-{{ Form::open(array(), array('method' => 'POST')) }}
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/yarr.css">
+  </head>
 
-  <!-- check for login errors flash var -->
-  @if (Session::has('registration_errors'))
-    <span class="error">Unable to register User.</span>
-  @endif
+  <body>
 
-  <!-- username field -->
-  <p>{{ Form::label('username', 'Username') }}</p>
-  <p>{{ Form::text('username') }}</p>
+    <div class="main_container">
+    
+      <div class="content_container" style="width:20%; margin: auto; padding: 0px 20px 20px 20px;">
 
-  <!-- email field -->
-  <p>{{ Form::label('email', 'Email Address') }}</p>
-  <p>{{ Form::text('email') }}</p>
+        <h1>Registration</h1>
+        <hr>
 
-  <!-- password field -->
-  <p>{{ Form::label('password', 'Password') }}</p>
-  <p>{{ Form::password('password') }}</p>
+        {{ Form::open(array(), array('method' => 'POST')) }}
 
-  <!-- confirm password -->
-  <p>{{ Form::label('confirm', 'Confirm Password') }}</p>
-  <p>{{ Form::password('confirm') }}</p>
+          <!-- check for login errors flash var -->
+          @if (Session::has('registration_errors'))
+            <span class="error">Unable to register User.</span>
+          @endif
 
-  <!-- submit button -->
-  <p>{{ Form::submit('Register') }}</p>
+          <!-- username field -->
+          <span>{{ Form::label('username', 'Username') }}</span><br>
+          <span>{{ Form::text('username') }}</span><br><br>
 
-{{ Form::close() }}
+          <!-- email field -->
+          <span>{{ Form::label('email', 'Email Address') }}</span><br>
+          <span>{{ Form::text('email') }}</span><br><br>
+
+          <!-- password field -->
+          <span>{{ Form::label('password', 'Password') }}</span><br>
+          <span>{{ Form::password('password') }}</span><br><br>
+
+          <!-- confirm password -->
+          <span>{{ Form::label('confirm', 'Confirm Password') }}</span><br>
+          <span>{{ Form::password('confirm') }}</span><br><br>
+
+          <!-- submit button -->
+          <span>{{ Form::submit('Register') }}</span><br>
+
+        {{ Form::close() }}
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
+

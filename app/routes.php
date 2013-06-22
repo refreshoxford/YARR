@@ -51,7 +51,7 @@ Route::group(array('prefix' =>  'user'), function() {
 Route::group(array('prefix' => 'test'), function() {
   $test_url = 'http://www.jpstacey.info/blog/feed';
 
-  Route::get('subs/add', function() use ($test_url) {
+  Route::get('feeds/add', function() use ($test_url) {
     $feed = RssFeed::find($test_url);
     if ($feed) {
       return "Cannot add $test_url: already there!";
@@ -64,12 +64,14 @@ Route::group(array('prefix' => 'test'), function() {
     return "Added $test_url";
   });
 
-  Route::get('subs/del', function() use ($test_url) {
+  Route::get('feeds/del', function() use ($test_url) {
     RssFeed::destroy($test_url);
 
     return "Destroyed $test_url";
   });
 
   Route::get('rssgrab/{url}', 'RssGrabberController@test');
+
+  Route::get('subs/add', 'SubsController@testAdd');
 
 });

@@ -54,11 +54,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
   /**
-   * @function subs()
+   * @function subscriptions()
    * defines one-to-many for subscriptions
    */
-  public function subs() {
-    return $this->hasMany('RssItem');
+  public function subscriptions() {
+    return $this->hasMany('Sub');
   }
 
 }

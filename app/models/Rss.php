@@ -27,8 +27,8 @@ class RssFeed extends Eloquent {
    * @function subscribers()
    * defines many-to-one for subscriber users
    */
-  public function subscribers() {
-    return $this->belongsToMany('Users');
+  public function subscriptions() {
+    return $this->hasMany('Sub');
   }
 }
 

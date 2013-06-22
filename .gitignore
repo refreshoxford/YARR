@@ -1,4 +1,6 @@
 # composer's lockfile not always tidied up
 composer.lock
+# composer's compiled file
+bootstrap/compiled.php
 # vendor folders
 vendor

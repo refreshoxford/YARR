@@ -41,6 +41,14 @@ Route::group(array('prefix' =>  'user'), function() {
     }
   });
 
+  Route::get('register', function() {
+    return View::make('register');
+  });
+
+  Route::post('register', function() {
+    return 'Look I posted the registration form';
+  });
+
 });
 
 

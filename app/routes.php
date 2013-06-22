@@ -15,13 +15,63 @@ Route::get('/', function() {
   return View::make('hello');
 });
 
+/*
+ * User Routes
+ */
+Route::group(array('prefix' =>  'user'), function() {
+
+  Route::get('/', function() {
+    if (Auth::guest()) {
+      return Redirect::to('user/login');
+    } else {
+      return 'Hello, ' . Auth::user()->username;
+    }
+  });
+
+  Route::get('login', function() {
+    return View::make('login');
+  });
+
+  Route::post('login', function() {
+    $userdata = array(
+      'username' => Input::get('username'),
+      'password' => Input::get('password'),
+    );
+
+    if (Auth::attempt($userdata)) {
+      return Redirect::to('user');
+    } else {
+      return Redirect::to('user/login')->with('login_errors', true);
+    }
+  });
+
+  Route::get('register', function() {
+    return View::make('register');
+  });
+
+  Route::post('register', function() {
+    if (false) {
+      return Redirect::to('user/register')->with('registration_errors', true);
+    }
+    $user = new User;
+    $user->username = Input::get('username');
+    $user->email = Input::get('email');
+    $user->password = Hash::make(Input::get('password'));
+    $user->save();
+    return Redirect::to('user/login');
+  });
+
+});
+
+
+
 /**
  * Test routes
  */
 Route::group(array('prefix' => 'test'), function() {
   $test_url = 'http://www.jpstacey.info/blog/feed';
 
-  Route::get('subs/add', function() use ($test_url) {
+  Route::get('feeds/add', function() use ($test_url) {
     $feed = RssFeed::find($test_url);
     if ($feed) {
       return "Cannot add $test_url: already there!";
@@ -34,12 +84,14 @@ Route::group(array('prefix' => 'test'), function() {
     return "Added $test_url";
   });
 
-  Route::get('subs/del', function() use ($test_url) {
+  Route::get('feeds/del', function() use ($test_url) {
     RssFeed::destroy($test_url);
 
     return "Destroyed $test_url";
   });
 
   Route::get('rssgrab/{url}', 'RssGrabberController@test');
+
+  Route::get('subs/add', 'SubsController@testAdd');
 
 });

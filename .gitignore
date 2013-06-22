@@ -4,3 +4,7 @@ composer.lock
 bootstrap/compiled.php
 # vendor folders
 vendor
+# Misc files
+.*swp
+*~
+.DS_Store

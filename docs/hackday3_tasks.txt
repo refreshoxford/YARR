@@ -1,0 +1,9 @@
+What we can do before the end of the day
+
+* User
+    * authentication, login/logout navigation
+    * Can maintain a list of own subscriptions (CRUD)
+* Feeds
+    * Decompose a feed into a list of item objects and save them
+    * Display of "all subs" - all items from all feeds, in reverse chron
+* ... OAuth authentication?

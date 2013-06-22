@@ -21,7 +21,11 @@ Route::get('/', function() {
 Route::group(array('prefix' =>  'user'), function() {
 
   Route::get('/', function() {
-    return 'Hello World';
+    if (Auth::guest()) {
+      return Redirect::to('user/login');
+    } else {
+      return 'Hello, ' . Auth::user()->username;
+    }
   });
 
   Route::get('login', function() {

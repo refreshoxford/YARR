@@ -50,7 +50,7 @@ class RssItem extends Eloquent {
   // $description
   // $pubDate
 
-  protected $primaryKey = $guid;
+  protected $primaryKey = 'guid';
 
   /**
    * @function feed()

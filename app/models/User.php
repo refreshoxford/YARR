@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Model as Eloquent;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-        protected $primaryKey = '_id';
+        protected $primaryKey = 'email';
 
 	/**
 	 * The database table used by the model.

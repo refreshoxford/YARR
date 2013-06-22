@@ -21,6 +21,16 @@ Route::get('/', function() {
 Route::controller('user', 'UserController');
 
 /**
+ * Subscription handling
+ */
+Route::filter('logged_in', function() {
+  if (Auth::guest()) {
+    return Redirect::to('user');
+  }
+});
+Route::controller('subs', 'SubsController');
+
+/**
  * Test routes
  */
 Route::group(array('prefix' => 'test'), function() {

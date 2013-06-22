@@ -14,6 +14,20 @@ class SubsController extends BaseController {
   }
 
   /**
+   * @function getIndex
+   * GET subs index
+   */
+  public function getView($id) {
+    $sub = Sub::find($id);
+    $feed = RssFeed::find($sub->rss_feed_id);
+    if (!count($feed->items)) {
+      $feed->fetch();
+      $feed->save();
+    }
+    return View::make('feed', array('feed' => $feed));
+  }
+
+  /**
    * @function getAdd
    * GET subs add
    */

@@ -9,21 +9,21 @@
 
 		<div class="main_container">
 
-			<h1 class="feed_header">{{$feeds->url}}</h1>
+			<h1 class="feed_header">{{$feed->url}}</h1>
 
-			@foreach ($feeds->items as $feed)
+			@foreach ($feed->items as $item)
 
-				<div id="{{$feed->guid}}" class="content_container">
-					<h2><a href="{{$feed->link}}" target="_blank">{{$feed->title}}</a></h2>
+				<div id="{{$item->guid}}" class="content_container">
+					<h2><a href="{{$item->link}}" target="_blank">{{$item->title}}</a></h2>
 					
 					<div class="feed_item_description_container">
 					
-						<p>{{$feed->description}}</p>
+						<p>{{$item->description}}</p>
 
 					</div>
 				</div>
-				<!-- <p>{{$feed->author}}</p> -->
-				<!-- <p>{{$feed->guid}}</p> -->
+				<!-- <p>{{$item->author}}</p> -->
+				<!-- <p>{{$item->guid}}</p> -->
 			@endforeach
 
 		</div>

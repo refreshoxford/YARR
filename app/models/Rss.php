@@ -12,7 +12,7 @@ use Jenssegers\Mongodb\Model as Eloquent;
  */
 class RssFeed extends Eloquent {
   // Properties:
-  // $url: primaryKey
+  // $url
   // $last_visited (set to now() timestamp)
   // $items
   // $subscriptions
@@ -68,9 +68,9 @@ class RssFeed extends Eloquent {
 class RssItem extends Eloquent {
 
   // Properties:
-  // $guid: primaryKey
+  // $guid
   // $last_visited (set to now() timestamp)
-  // $feed: foreign key
+  // $rss_feed: foreign key
   // $title
   // $link
   // $description

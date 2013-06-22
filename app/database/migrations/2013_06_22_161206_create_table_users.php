@@ -14,7 +14,9 @@ class CreateTableUsers extends Migration {
       // Fields
       $table->increments('id');
       $table->string('email');
+      $table->string('username');
       $table->string('password');
+
       // Timestamps
       $table->timestamps();
       // Constraints

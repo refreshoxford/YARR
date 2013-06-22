@@ -24,7 +24,7 @@ class SubsController extends BaseController {
       $feed->fetch();
       $feed->save();
     }
-    return View::make('feed', array('feed' => $feed));
+    return View::make('feed', array('feed' => $feed, 'sub' => $sub));
   }
 
   /**

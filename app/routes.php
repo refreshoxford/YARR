@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::get('/', function() {
   return View::make('hello');
 });
@@ -41,5 +39,7 @@ Route::group(array('prefix' => 'test'), function() {
 
     return "Destroyed $test_url";
   });
-});
 
+  Route::get('rssgrab/{url}', 'RssGrabberController@test');
+
+});

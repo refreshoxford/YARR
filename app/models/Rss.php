@@ -29,7 +29,6 @@ class RssFeed extends Eloquent {
   * fetches and parses RSS feed items
   **/
   public function fetch() {
-    var_dump($this->url);
     $response = Httpful\Request::get($this->url)->expectsXml()->send();
 
     foreach ($response->body->channel->item as $item) {

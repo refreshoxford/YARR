@@ -3,8 +3,6 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-use Jenssegers\Mongodb\Model as Eloquent;
-
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**

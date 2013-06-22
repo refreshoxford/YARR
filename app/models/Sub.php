@@ -5,8 +5,6 @@
  * User subscriptions
  */
 
-use Jenssegers\Mongodb\Model as Eloquent;
-
 /**
  * RSS Feed, identified by a URL
  */

@@ -5,10 +5,16 @@
  * RSS feeds and items
  */
 
+use Jenssegers\Mongodb\Model as Eloquent;
+
 /**
  * RSS Feed, identified by a URL
  */
 class RssFeed extends Eloquent {
+
+  // Use url as the primary key - it's the unique identifier for an RSS Feed
+  protected $primaryKey = "url";
+
   /**
    * @function items()
    * defines one-to-many for RSS items

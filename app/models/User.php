@@ -3,7 +3,11 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+use Jenssegers\Mongodb\Model as Eloquent;
+
 class User extends Eloquent implements UserInterface, RemindableInterface {
+
+        protected $primaryKey = '_id';
 
 	/**
 	 * The database table used by the model.
@@ -48,5 +52,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+  /**
+   * @function subs()
+   * defines one-to-many for subscriptions
+   */
+  public function subs() {
+    return $this->hasMany('RssItem');
+  }
 
 }

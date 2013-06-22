@@ -1,0 +1,9 @@
+Some setup notes
+----------------
+
+* install composer
+$ composer create-project laravel/laravel your-project-name
+* need github credentials for rate limit
+* install php5-mcrypt
+* Ensure Apache vhost allows overrides from public/.htaccess to do routing
+$ sudo chown www-data:www-data app/storage -R

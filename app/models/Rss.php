@@ -17,15 +17,40 @@ class RssFeed extends Eloquent {
   // $items
   // $subscriptions
 
-  // Use url as the primary key - it's the unique identifier for an RSS Feed
-  protected $primaryKey = "url";
-
   /**
    * @function items()
    * defines one-to-many for RSS items
    */
   public function items() {
     return $this->hasMany('RssItem');
+  }
+
+  public function getItems() {
+    return RssItem::where('rss_feed_id', '=', $this->_id)->get();
+  }
+
+  /** 
+  * @function fetch()
+  * fetches and parses RSS feed items
+  **/
+  public function fetch() {
+    $response = Httpful\Request::get($this->url)->expectsXml()->send();
+
+    foreach ($response->body->channel->item as $item) {
+      
+      $parsedItem = new RssItem();
+      
+      $parsedItem->title = (string) $item->title;
+      $parsedItem->link = (string) $item->link;
+      $parsedItem->description = (string) $item->description;
+      $parsedItem->pubDate = (string) $item->pubDate;
+      $parsedItem->author = (string) $item->author;
+      $parsedItem->guid = (string) $item->guid;
+
+      $this->items()->save($parsedItem);
+    }
+    $this->save();
+    
   }
 
   /**
@@ -41,6 +66,7 @@ class RssFeed extends Eloquent {
  * RSS item, identified by... MD5 hash?
  */
 class RssItem extends Eloquent {
+
   // Properties:
   // $guid: primaryKey
   // $last_visited (set to now() timestamp)
@@ -49,8 +75,6 @@ class RssItem extends Eloquent {
   // $link
   // $description
   // $pubDate
-
-  protected $primaryKey = 'guid';
 
   /**
    * @function feed()

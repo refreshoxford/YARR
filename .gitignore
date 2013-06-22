@@ -1,0 +1,4 @@
+# composer's lockfile not always tidied up
+composer.lock
+# vendor folders
+vendor

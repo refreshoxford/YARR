@@ -2,7 +2,10 @@
 
 @if (count($user->subscriptions))
   <ul>@foreach ($user->subscriptions as $sub)
-    <li>{{ $sub->title }}</li>
+    <li>
+      <a href="/subs/edit/{{ $sub->id }}">{{ $sub->title }}</a>
+      <a href="/subs/delete/{{ $sub->id }}">(delete)</a>
+    </li>
   @endforeach</ul>
   <p><a href="/subs/add">Add a sub</a></p>
 @else

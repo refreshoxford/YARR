@@ -18,7 +18,7 @@ class Sub extends Eloquent {
    * @function subscribers()
    * defines many-to-one for subscriber users
    */
-  public function subscribers() {
+  public function subscriber() {
     return $this->belongsTo('User');
   }
 

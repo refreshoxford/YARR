@@ -1,0 +1,27 @@
+body
+{
+	background-color: #eee;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 0.8em;
+}
+
+.main_container
+{
+	width: 80%;
+	margin: auto;
+}
+
+.feed_item_container
+{
+	padding: 25px;
+	padding-top: 5px;
+
+	border: 1px solid lightgrey;
+	background-color: white;
+
+	margin-bottom: 10px;
+}
+
+.feed_item_description_container
+{
+}

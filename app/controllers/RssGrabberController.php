@@ -25,9 +25,9 @@ class RssGrabberController extends BaseController {
 		
 		// echo '<pre>'.print_r($rss, true).'</pre>';
 		// echo '<pre>'.print_r(RSSFeed::find('http://www.telegraph.co.uk/technology/rss')->items, true).'</pre>';
-		echo '<pre>';
-		var_dump(RssFeed::where('url','=',$url)->first()->getItems());
-		echo '</pre>';
+		// echo '<pre>';
+		// var_dump(RssFeed::where('url','=',$url)->first()->getItems());
+		// echo '</pre>';
 
 	    // echo $rss::find(1)->items()->title.' 1<br>';
 	    // echo $rss::find(1)->items()->link.' 1<br>';
@@ -37,8 +37,7 @@ class RssGrabberController extends BaseController {
 	    // echo $rss::find(1)->items()->author.' 1<br>';
 	    // echo $rss::find(1)->items()->author.' 1<br>';
 	    // echo $rss::find(1)->items()->guid.' 1<br>';
-
-		return '';
+		return View::make('feed', array('feeds' => RssFeed::where('url','=',$url)->first()));
 	}
 
 }

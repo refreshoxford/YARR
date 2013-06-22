@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function() {
-  return View::make('hello');
-});
+Route::get('/', array('before' => 'logged_in', 'do' => function() {
+  return Redirect::to('subs');
+}));
 
 /*
  * User Routes

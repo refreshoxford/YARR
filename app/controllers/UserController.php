@@ -11,7 +11,11 @@ class UserController extends BaseController {
   }
 
   public function getLogin() {
-    return View::make('login');
+    if (Auth::guest()) {
+      return View::make('login');
+    } else {
+      return Redirect::to('subs');
+    }
   }
 
   public function postLogin() {
@@ -28,7 +32,11 @@ class UserController extends BaseController {
   }
 
   public function getRegister() {
-    return View::make('register');
+    if (Auth::guest()) {
+      return View::make('register');
+    } else {
+      return Redirect::to('subs');
+    }
   }
 
   public function postRegister() {

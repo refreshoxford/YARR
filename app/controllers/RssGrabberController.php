@@ -43,7 +43,7 @@ class RssGrabberController extends BaseController {
 	    // echo $rss::find(1)->items()->author.' 1<br>';
 	    // echo $rss::find(1)->items()->guid.' 1<br>';
 
-		return View::make('feed', array('feeds' => RssFeed::find(3)));
+		return View::make('feed', array('feeds' => RssFeed::find(1)));
 	}
 
 }

@@ -19,7 +19,7 @@ Screenshots
 
 ![Edit a subscription](https://raw.github.com/refreshoxford/YARR/master/docs/screenshots/subs-edit.gif)
 
-![View items in a subscription](https://raw.github.com/refreshoxford/YARR/master/docs/screenshots/subs-edit.gif)
+![View items in a subscription](https://raw.github.com/refreshoxford/YARR/master/docs/screenshots/subs-view.gif)
 
 Credits
 -------

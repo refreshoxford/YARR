@@ -11,7 +11,7 @@
     
       <div class="content_container" style="width:20%; margin: auto; padding: 0px 20px 0px 20px;">
 
-        <h1>Login to YARR</h1>
+        <h1>Log in to YARR</h1>
         <hr>
 
         {{ Form::open(array(), array('method' => 'POST')) }}
